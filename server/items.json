@@ -1,14 +1,27 @@
 [
-    {
-        "id": "1",
-        "name": "do laundry",
-        "complete": false,
-        "tag": "housework"
-    },
-    {
-        "id": "2",
-        "name": "buy sugar",
-        "complete": false,
-        "tag": "housework"
-    }
+  {
+    "id": "2",
+    "name": "buy sugar",
+    "complete": false,
+    "tag": "housework",
+    "completed": true
+  },
+  {
+    "id": "4",
+    "name": "buy KFC",
+    "completed": false,
+    "tag": "housework"
+  },
+  {
+    "id": "5",
+    "name": "mop the ground",
+    "completed": true,
+    "tag": "housework"
+  },
+  {
+    "id": "6",
+    "name": "Vacum",
+    "completed": false,
+    "tag": "housework"
+  }
 ]

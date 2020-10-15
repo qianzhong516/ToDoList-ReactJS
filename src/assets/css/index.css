@@ -113,3 +113,23 @@ input[type=checkbox]:checked:after{
     color: #ffffff;
     cursor: pointer;
 }
+#tag-form{
+    display: inline-block;
+}
+#tag-form .inp{
+    width: 100px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 1px solid #292929;
+    border-radius: 4px;
+}
+#tag-form input[name="tag-name"]{
+    width: 120px;
+    padding: 5px 10px;
+    border: 1px solid #292929;
+    border-radius: 4px;    
+}
+.add-new-tag, .cancel{
+    font-size: 15px;
+    color: grey;
+}

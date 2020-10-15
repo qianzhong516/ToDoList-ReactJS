@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { addItem } from '../reducers/toDoSlice'
 import { useDispatch } from 'react-redux'
 import TagSelect from './TagSelect'
+import NewTagForm from './NewTagForm'
+import AddNewTagBtn from './AddNewTagBtn'
 
 const AddItemForm = () => {
 
     const dispatch = useDispatch()
+    const [showTagForm, setShowTagForm] = useState(false)
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -20,7 +23,10 @@ const AddItemForm = () => {
     return(
         <form id="add-to-do" onSubmit={handleSubmit}>
             <div className="form-control"><label>Task Name: </label><input type="text" name="toDoName" /></div>
-            <div className="form-control"><label>Tag: </label><TagSelect /><br/></div>
+            <div className="form-control">
+                <label>Tag: </label>{ showTagForm ?  <NewTagForm /> : <TagSelect />} <AddNewTagBtn showTagForm={showTagForm} updateFn={setShowTagForm}/>
+                
+            </div>
             <input type="submit" value="Add To do" />
         </form>
     )

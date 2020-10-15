@@ -1,7 +1,5 @@
 var colorInput = document.getElementById('colorPicker');
-console.log(colorInput)
 var colorPalette = document.getElementById('colorPalette');
-console.log(colorPalette)
 colorInput.addEventListener("click", showColorPalette);
 colorInput.addEventListener("focusout", hideColorPalette);
 colorPalette.mouseIsOver = false;
