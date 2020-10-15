@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import {fetchAllItems, saveNewItem} from '../services/itemServices'
+import {fetchAllItems, saveNewItem, toggleItem} from '../services/itemServices'
 
 export const getAllItems = createAsyncThunk("toDoList/getAllItems", async () => {
     const res = await fetchAllItems()
@@ -11,6 +11,11 @@ export const addItem = createAsyncThunk('toDoList/saveItem', async ({name, tag})
     return res
 })
 
+export const toggleCompletion = createAsyncThunk('toDoList/toggle', async(id) => {
+    await toggleItem(id)
+    return id
+})
+
 const toDoSlice = createSlice({
     name: "toDoList",
     initialState: {
@@ -19,9 +24,6 @@ const toDoSlice = createSlice({
     },
     reducers:{
         deleteItem: (state, action) => {
-
-        },        
-        toggleCompletion: (state, action) => {
 
         }
     },
@@ -32,11 +34,18 @@ const toDoSlice = createSlice({
         },
         [addItem.fulfilled]: (state, action) => {
             state.items = [...state.items, action.payload]
+        },
+        [toggleCompletion.fulfilled]: (state, action) => {
+            const id = action.payload
+            state.items.forEach(item => {
+                if(Number(item.id) === Number(id))  
+                    item.completed = !item.completed
+            }) 
         }
     }
 })
 
 export const selectAllItems = state => state.toDos.items
 export const selectStatus = state => state.toDos.status
-export const {deleteItem, toggleCompletion} = toDoSlice.actions
+export const {deleteItem} = toDoSlice.actions
 export default toDoSlice.reducer

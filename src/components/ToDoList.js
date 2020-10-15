@@ -20,14 +20,26 @@ const ToDoList = () => {
     
     
     return(
-        <ul>
-            {
-                items && items.map( i => <li key={i.id}>
-                                            <ToDoItems completed={i.completed} name={i.name} />
-                                            | <ToDoTag tagName={i.tag} />
-                                         </li>)
-            }
-        </ul>
+        <>
+            <ul>
+                {
+                    items && items.map( i => !i.completed && <li key={i.id}>
+                                                <ToDoItems id={i.id} completed={i.completed} name={i.name} />
+                                                | <ToDoTag tagName={i.tag} />
+                                            </li>)
+                }
+            </ul>
+            <h2>Completed Todos: </h2>
+            <ul>
+                
+                {
+                    items && items.map( i => i.completed && <li key={i.id}>
+                          <ToDoItems id={i.id} completed={i.completed} name={i.name} />
+                        | <ToDoTag tagName={i.tag} />
+                    </li>)                    
+                }
+            </ul>
+        </>
     )
 }
 

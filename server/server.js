@@ -55,6 +55,24 @@ app.get('/get/tags', (req, res) => {
     return res.send(tags)
 })
 
+app.put('/toggle/item', (req, res) => {
+
+    const id = req.body.id
+    console.log(typeof(id), id)    
+    const raw = fs.readFileSync(fileDir)
+    let items = JSON.parse(raw)
+
+    items.forEach( item => {
+        if(item.id === Number(id))
+            item.completed = !item.completed
+    })
+
+    const newFile = JSON.stringify(items, null, 2)
+    fs.writeFileSync(fileDir, newFile)
+
+    return res.send(id)
+})
+
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`)
 })

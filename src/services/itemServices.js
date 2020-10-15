@@ -15,4 +15,9 @@ const saveNewItem = async({name, tag}) => {
     return res.data
 }
 
-export {fetchAllItems, saveNewItem}
+const toggleItem = async(id) => {
+    const res = await axios.put(`${baseURL}/toggle/item`, {id})
+    return res.data
+}
+
+export {fetchAllItems, saveNewItem, toggleItem}
