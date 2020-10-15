@@ -1,0 +1,12 @@
+[
+    {
+        "name": "do laundry",
+        "complete": false,
+        "tag": "housework"
+    },
+    {
+        "name": "buy sugar",
+        "complete": false,
+        "tag": "housework"
+    }
+]
