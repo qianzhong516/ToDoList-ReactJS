@@ -8,15 +8,19 @@ const TagSelect = () => {
     const tags = useSelector(selectTags)
     
     useEffect(()=>{
-
+        
         dispatch(getAllTags())
 
     },[dispatch])
 
     return(
-        <select id="tag-select">
-            { tags && tags.map( (t, i) => <option key={i} value={t}>{t}</option>)}
-        </select>
+        <>
+            { tags && tags.map( (t, i) =>
+                <select id="tag-select" style={{ backgroundColor: t.color}}>
+                    <option key={i} value={t.name}>{t.name}</option>
+                </select>
+            )}
+        </>
     )
 
 }

@@ -2,22 +2,23 @@ import React, { useEffect } from 'react'
 import ToDoItem from './ToDoItem'
 import ToDoTag from './ToDoTag'
 import DeleteBtn from './DeleteBtn'
-import { selectAllItems, selectStatus, getAllItems } from '../reducers/toDoSlice'
+import { selectAllItems, getAllItems } from '../reducers/toDoSlice'
+import { getAllTags, selectTags } from '../reducers/tagSlice' 
 import { useSelector, useDispatch } from 'react-redux'
 
 const ToDoList = () => {
 
     const dispatch = useDispatch()
     const items = useSelector(selectAllItems)
-    const status = useSelector(selectStatus)
+    const tags = useSelector(selectTags)
 
     useEffect(()=>{
+        
+        dispatch(getAllItems())
 
-        if(status === "idle"){
-            dispatch(getAllItems())
-        }
+        dispatch(getAllTags())
 
-    },[status, dispatch])
+    },[dispatch])
     
     
     return(
@@ -27,7 +28,7 @@ const ToDoList = () => {
                 {
                     items && items.map( i => !i.completed && <li key={i.id}>
                                                 <ToDoItem id={i.id} completed={i.completed} name={i.name} />
-                                                <ToDoTag tagName={i.tag} />
+                                                <ToDoTag tagName={i.tag} color={ tags && tags.map( t => { if(i.tag === t.name) return t.color } ) } />
                                                 <DeleteBtn id={i.id} />
                                             </li>)
                 }
@@ -38,7 +39,7 @@ const ToDoList = () => {
                 {
                     items && items.map( i => i.completed && <li key={`completed-${i.id}`}>
                           <ToDoItem id={i.id} completed={i.completed} name={i.name} />
-                          <ToDoTag tagName={i.tag} />
+                          <ToDoTag tagName={i.tag} color={ tags && tags.map( t => { if(i.tag === t.name) return t.color } ) } />
                           <DeleteBtn id={i.id} />
                     </li>)                    
                 }
