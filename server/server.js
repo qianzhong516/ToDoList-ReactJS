@@ -34,7 +34,7 @@ app.post('/add/item', (req, res) => {
     const nextID = generateID(items)
 
     const newItem = {
-        id: nextID,
+        id: nextID.toString(),
         name: name,
         completed: false,
         tag: tag
@@ -45,7 +45,7 @@ app.post('/add/item', (req, res) => {
 
     fs.writeFileSync(fileDir, newFile)
 
-    return res.json(req.body)
+    return res.json(newItem)
 })
 
 app.get('/get/tags', (req, res) => {
@@ -63,9 +63,25 @@ app.put('/toggle/item', (req, res) => {
     let items = JSON.parse(raw)
 
     items.forEach( item => {
-        if(item.id === Number(id))
+        if(item.id === id)
             item.completed = !item.completed
     })
+
+    const newFile = JSON.stringify(items, null, 2)
+    fs.writeFileSync(fileDir, newFile)
+
+    return res.send(id)
+})
+
+app.put('/delete/item', (req, res) => {
+    const id = req.body.id
+
+    const raw = fs.readFileSync(fileDir)
+    let items = JSON.parse(raw)
+
+    items = items.filter( i => i.id !== id )
+
+    console.log(items)
 
     const newFile = JSON.stringify(items, null, 2)
     fs.writeFileSync(fileDir, newFile)

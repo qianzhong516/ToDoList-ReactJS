@@ -8,7 +8,6 @@ const ToDoItem = ({id, completed, name}) => {
     
     const handleToggleCompletion = (event) => {
         const id = event.target.dataset.id
-        console.log("toggled input id: ", id)
         dispatch(toggleCompletion(id))
     }
 

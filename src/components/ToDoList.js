@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import ToDoItems from './ToDoItems'
+import ToDoItem from './ToDoItem'
 import ToDoTag from './ToDoTag'
+import DeleteBtn from './DeleteBtn'
 import { selectAllItems, selectStatus, getAllItems } from '../reducers/toDoSlice'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -24,8 +25,9 @@ const ToDoList = () => {
             <ul>
                 {
                     items && items.map( i => !i.completed && <li key={i.id}>
-                                                <ToDoItems id={i.id} completed={i.completed} name={i.name} />
+                                                <ToDoItem id={i.id} completed={i.completed} name={i.name} />
                                                 | <ToDoTag tagName={i.tag} />
+                                                <DeleteBtn id={i.id} />
                                             </li>)
                 }
             </ul>
@@ -33,9 +35,10 @@ const ToDoList = () => {
             <ul>
                 
                 {
-                    items && items.map( i => i.completed && <li key={i.id}>
-                          <ToDoItems id={i.id} completed={i.completed} name={i.name} />
+                    items && items.map( i => i.completed && <li key={`completed-${i.id}`}>
+                          <ToDoItem id={i.id} completed={i.completed} name={i.name} />
                         | <ToDoTag tagName={i.tag} />
+                          <DeleteBtn id={i.id} />
                     </li>)                    
                 }
             </ul>

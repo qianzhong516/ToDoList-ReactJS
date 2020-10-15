@@ -20,4 +20,9 @@ const toggleItem = async(id) => {
     return res.data
 }
 
-export {fetchAllItems, saveNewItem, toggleItem}
+const deleteToDoItem = async(id) => {
+    const res = await axios.put(`${baseURL}/delete/item`, {id})
+    return res.data
+}
+
+export {fetchAllItems, saveNewItem, toggleItem, deleteToDoItem}
