@@ -1,21 +1,27 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { fetchAllTags } from '../services/tagServices'
+import { fetchAllTags, saveNewTag } from '../services/tagServices'
 
 export const getAllTags = createAsyncThunk('tags/get/all', async () => {
     const tags = await fetchAllTags() 
     return tags
 })
 
+export const saveTag = createAsyncThunk('tags/add/tag', async(tag) => {
+    const res = await saveNewTag(tag)
+    return res
+})
+
 const tagSlice = createSlice({
     name: "tags",
     initialState: {
-        tags: [],
-        status: "idle"
+        tags: []
     },
     extraReducers: {
         [getAllTags.fulfilled]: (state, action) => {
-            state.status = "success"
             state.tags = action.payload
+        },
+        [saveTag.fulfilled]: (state, action) => {
+            state.tags = [...state.tags, action.payload]
         }
     }
 })

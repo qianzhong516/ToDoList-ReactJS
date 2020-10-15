@@ -89,6 +89,21 @@ app.put('/delete/item', (req, res) => {
     return res.send(id)
 })
 
+app.post('/add/tag', (req, res) => {
+    const tag = req.body
+    console.log(req.body)
+
+    const raw = fs.readFileSync(tagFileDir)
+    let tags = JSON.parse(raw)
+
+    tags = [...tags, tag]
+    const newFile = JSON.stringify(tags, null, 2)
+
+    fs.writeFileSync(tagFileDir, newFile)
+
+    return res.json(tag)
+})
+
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`)
 })

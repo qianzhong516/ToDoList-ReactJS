@@ -24,12 +24,10 @@ export const deleteToDo = createAsyncThunk('toDoList/delete/item', async(id) => 
 const toDoSlice = createSlice({
     name: "toDoList",
     initialState: {
-        items: null,
-        status: 'idle'
+        items: null
     },
     extraReducers: {
         [getAllItems.fulfilled]: (state, action) => {
-            state.status = 'success'
             state.items = action.payload
         },
         [addItem.fulfilled]: (state, action) => {
@@ -50,5 +48,4 @@ const toDoSlice = createSlice({
 })
 
 export const selectAllItems = state => state.toDos.items
-export const selectStatus = state => state.toDos.status
 export default toDoSlice.reducer

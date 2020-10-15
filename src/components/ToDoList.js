@@ -20,7 +20,6 @@ const ToDoList = () => {
 
     },[dispatch])
     
-    
     return(
         <>
             <h2 id="todo-list-title">Pending Tasks</h2>
@@ -28,7 +27,7 @@ const ToDoList = () => {
                 {
                     items && items.map( i => !i.completed && <li key={i.id}>
                                                 <ToDoItem id={i.id} completed={i.completed} name={i.name} />
-                                                <ToDoTag tagName={i.tag} color={ tags && tags.map( t => { if(i.tag === t.name) return t.color } ) } />
+                                                <ToDoTag tagName={i.tag} color={ tags && tags.find( t => t.name === i.tag).color } />
                                                 <DeleteBtn id={i.id} />
                                             </li>)
                 }
@@ -39,7 +38,7 @@ const ToDoList = () => {
                 {
                     items && items.map( i => i.completed && <li key={`completed-${i.id}`}>
                           <ToDoItem id={i.id} completed={i.completed} name={i.name} />
-                          <ToDoTag tagName={i.tag} color={ tags && tags.map( t => { if(i.tag === t.name) return t.color } ) } />
+                          <ToDoTag tagName={i.tag} color={ tags && tags.find( t => t.name === i.tag).color } />
                           <DeleteBtn id={i.id} />
                     </li>)                    
                 }

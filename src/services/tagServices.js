@@ -7,4 +7,9 @@ const fetchAllTags = async() => {
     return res.data
 }
 
-export {fetchAllTags}
+const saveNewTag = async(tag) => {
+    const res = await axios.post(`${baseURL}/add/tag`, tag)
+    return res.data
+} 
+
+export {fetchAllTags, saveNewTag}
