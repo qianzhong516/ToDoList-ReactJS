@@ -14,8 +14,8 @@ const TagSelect = () => {
     },[dispatch])
 
     return(
-        <select>
-            { tags && tags.map( (t, i) => <option key={i} value="t">{t}</option>)}
+        <select id="tag-select">
+            { tags && tags.map( (t, i) => <option key={i} value={t}>{t}</option>)}
         </select>
     )
 

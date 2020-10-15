@@ -10,7 +10,8 @@ const AddItemForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         const name = document.querySelector('input[name=toDoName]').value
-        dispatch(addItem(name))
+        const tag = document.querySelector('#tag-select').value
+        dispatch(addItem({name, tag}))
         
         // clear input
         document.querySelector('input[name=toDoName]').value = ""

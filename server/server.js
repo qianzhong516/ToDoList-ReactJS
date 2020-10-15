@@ -26,6 +26,7 @@ const generateID = (items) => {
 app.post('/add/item', (req, res) => {
 
     const name = req.body.name
+    const tag = req.body.tag
 
     const raw = fs.readFileSync(fileDir)
     let items = JSON.parse(raw)
@@ -36,7 +37,7 @@ app.post('/add/item', (req, res) => {
         id: nextID,
         name: name,
         completed: false,
-        tag: "housework"
+        tag: tag
     }
 
     items.push(newItem)

@@ -6,8 +6,8 @@ export const getAllItems = createAsyncThunk("toDoList/getAllItems", async () => 
     return res
 })
 
-export const addItem = createAsyncThunk('toDoList/saveItem', async (name) =>{
-    const res = await saveNewItem(name)
+export const addItem = createAsyncThunk('toDoList/saveItem', async ({name, tag}) =>{
+    const res = await saveNewItem({name, tag})
     return res
 })
 

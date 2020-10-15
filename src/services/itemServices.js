@@ -9,8 +9,9 @@ const fetchAllItems = async () => {
     return res.data
 }
 
-const saveNewItem = async(name) => {
-    const res = await axios.post(`${baseURL}/add/item`, {name})
+const saveNewItem = async({name, tag}) => {
+    console.log('axios received name: ', name, ' and tag: ',tag)
+    const res = await axios.post(`${baseURL}/add/item`, {name, tag})
     return res.data
 }
 
