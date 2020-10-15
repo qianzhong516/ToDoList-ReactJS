@@ -6,6 +6,7 @@ app.use(express.json())
 const fs = require('fs')
 const PORT = process.env.PORT || 3001
 const fileDir = __dirname+"/items.json"
+const tagFileDir = __dirname+"/tags.json"
 
 app.get('/get/items', (req, res) => {
     const raw = fs.readFileSync(fileDir)
@@ -25,7 +26,6 @@ const generateID = (items) => {
 app.post('/add/item', (req, res) => {
 
     const name = req.body.name
-    console.log(req.body)
 
     const raw = fs.readFileSync(fileDir)
     let items = JSON.parse(raw)
@@ -38,7 +38,6 @@ app.post('/add/item', (req, res) => {
         completed: false,
         tag: "housework"
     }
-    console.log(newItem)
 
     items.push(newItem)
     const newFile = JSON.stringify(items, null, 2)
@@ -46,6 +45,13 @@ app.post('/add/item', (req, res) => {
     fs.writeFileSync(fileDir, newFile)
 
     return res.json(req.body)
+})
+
+app.get('/get/tags', (req, res) => {
+    const raw = fs.readFileSync(tagFileDir)
+    const tags = JSON.parse(raw)
+
+    return res.send(tags)
 })
 
 app.listen(PORT, () => {

@@ -1,6 +1,5 @@
-import '@reduxjs/toolkit'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import {fetchAllItems, saveNewItem} from '../services'
+import {fetchAllItems, saveNewItem} from '../services/itemServices'
 
 export const getAllItems = createAsyncThunk("toDoList/getAllItems", async () => {
     const res = await fetchAllItems()
@@ -8,11 +7,7 @@ export const getAllItems = createAsyncThunk("toDoList/getAllItems", async () => 
 })
 
 export const addItem = createAsyncThunk('toDoList/saveItem', async (name) =>{
-
     const res = await saveNewItem(name)
-   
-    console.log('thunk function response: ', res)
-
     return res
 })
 

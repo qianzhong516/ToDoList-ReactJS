@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import ToDoItems from './ToDoItems'
+import ToDoTag from './ToDoTag'
 import { selectAllItems, selectStatus, getAllItems } from '../reducers/toDoSlice'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -21,7 +22,10 @@ const ToDoList = () => {
     return(
         <ul>
             {
-                items && items.map( i => <li key={i.id}><ToDoItems completed={i.completed} name={i.name} /></li>)
+                items && items.map( i => <li key={i.id}>
+                                            <ToDoItems completed={i.completed} name={i.name} />
+                                            | <ToDoTag tagName={i.tag} />
+                                         </li>)
             }
         </ul>
     )

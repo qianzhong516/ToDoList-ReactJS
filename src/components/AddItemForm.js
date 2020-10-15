@@ -1,6 +1,7 @@
 import React from 'react'
 import { addItem } from '../reducers/toDoSlice'
 import { useDispatch } from 'react-redux'
+import TagSelect from './TagSelect'
 
 const AddItemForm = () => {
 
@@ -18,6 +19,7 @@ const AddItemForm = () => {
     return(
         <form onSubmit={handleSubmit}>
             <input type="text" name="toDoName" />
+            <TagSelect />
             <input type="submit" />
         </form>
     )
