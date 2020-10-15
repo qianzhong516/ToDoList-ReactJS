@@ -22,22 +22,23 @@ const ToDoList = () => {
     
     return(
         <>
-            <ul>
+            <h2 id="todo-list-title">Pending Tasks</h2>
+            <ul id="todo-list">
                 {
                     items && items.map( i => !i.completed && <li key={i.id}>
                                                 <ToDoItem id={i.id} completed={i.completed} name={i.name} />
-                                                | <ToDoTag tagName={i.tag} />
+                                                <ToDoTag tagName={i.tag} />
                                                 <DeleteBtn id={i.id} />
                                             </li>)
                 }
             </ul>
-            <h2>Completed Todos: </h2>
-            <ul>
+            <h2 id="completed-list-title">Completed Tasks</h2>
+            <ul id="completed-list">
                 
                 {
                     items && items.map( i => i.completed && <li key={`completed-${i.id}`}>
                           <ToDoItem id={i.id} completed={i.completed} name={i.name} />
-                        | <ToDoTag tagName={i.tag} />
+                          <ToDoTag tagName={i.tag} />
                           <DeleteBtn id={i.id} />
                     </li>)                    
                 }

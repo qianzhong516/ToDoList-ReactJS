@@ -18,10 +18,10 @@ const AddItemForm = () => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="toDoName" />
-            <TagSelect />
-            <input type="submit" />
+        <form id="add-to-do" onSubmit={handleSubmit}>
+            <div className="form-control"><label>Task Name: </label><input type="text" name="toDoName" /></div>
+            <div className="form-control"><label>Tag: </label><TagSelect /><br/></div>
+            <input type="submit" value="Add To do" />
         </form>
     )
 }

@@ -12,9 +12,6 @@ const tagSlice = createSlice({
         tags: [],
         status: "idle"
     },
-    reducers: {
-
-    },
     extraReducers: {
         [getAllTags.fulfilled]: (state, action) => {
             state.status = "success"

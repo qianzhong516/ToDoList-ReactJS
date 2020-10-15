@@ -1,0 +1,115 @@
+html, body{
+    font-size: 20px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li{
+    margin-bottom: 10px;
+}
+
+#container{
+    width: 600px;
+    margin: 80px auto 0 auto;
+}
+
+#todo-list{
+    margin-top: 20px;
+}
+#todo-list-title, #completed-list-title{
+    text-decoration: underline;
+}
+#todo-list-title{
+    margin-top: 40px;
+}
+#completed-list-title{
+    margin-top: 60px;
+}
+#completed-list{
+    margin-top: 20px;
+}
+.tag{
+    background-color: pink;
+    color: #292929;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.delete-btn{
+    outline: none;
+    border: 1px solid #f2f2f2;
+    border-radius: 4px;
+    padding: 5px 12px;
+    cursor: pointer;
+    background-color: #292929;
+    color: #ffffff;
+}
+input[type=checkbox]{
+    appearance: none;
+    outline: none;
+    width: 20px;
+    height: 20px;
+    background-color: #f2f2f2;
+    vertical-align: middle;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+input[type=checkbox]:checked{
+    border: 1px solid #292929;
+    color: #292929;
+    text-align: center;
+}
+input[type=checkbox]:checked:after{
+    content: "x";
+    font-size: 22px;
+    line-height: 15px;
+}
+#add-to-do{
+    width: 400px;
+    border: 2px solid #292929;
+    border-radius: 4px;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+#add-to-do .form-control{
+    margin-bottom: 15px;
+}
+#add-to-do label{
+    width: 200px;
+}
+#add-to-do input[name="toDoName"]{
+    font-size: 15px;
+    padding: 5px 0 5px 5px;
+    border: 1px solid #292929;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+#add-to-do #tag-select{
+    padding: 5px;
+    border: 1px solid #292929;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+#add-to-do input[type=submit]{
+    outline: none;
+    padding: 5px 10px;
+    border: 1px solid #292929;
+    border-radius: 4px;
+    font-size: 15px;
+    background: #292929;
+    color: #ffffff;
+    cursor: pointer;
+}
