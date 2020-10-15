@@ -1,10 +1,12 @@
 [
     {
+        "id": "1",
         "name": "do laundry",
         "complete": false,
         "tag": "housework"
     },
     {
+        "id": "2",
         "name": "buy sugar",
         "complete": false,
         "tag": "housework"
