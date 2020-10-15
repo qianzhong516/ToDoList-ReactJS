@@ -3,7 +3,8 @@ import React from 'react'
 const ToDoItem = ({completed, name}) => {
     return(
         <>
-            <input type="checkbox" checked = {completed && true} />
+            { completed && <input type="checkbox" checked /> }
+            { !completed && <input type="checkbox" /> } 
             <span>{name}</span>
         </>
     )

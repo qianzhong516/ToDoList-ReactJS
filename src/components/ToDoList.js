@@ -21,7 +21,7 @@ const ToDoList = () => {
     return(
         <ul>
             {
-                items && items.map( i => <li><ToDoItems completed={i.completed} name={i.name} /></li>)
+                items && items.map( i => <li key={i.id}><ToDoItems completed={i.completed} name={i.name} /></li>)
             }
         </ul>
     )

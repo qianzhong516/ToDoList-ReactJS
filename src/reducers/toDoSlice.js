@@ -1,9 +1,18 @@
 import '@reduxjs/toolkit'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import {fetchAllItems} from '../services'
+import {fetchAllItems, saveNewItem} from '../services'
 
 export const getAllItems = createAsyncThunk("toDoList/getAllItems", async () => {
     const res = await fetchAllItems()
+    return res
+})
+
+export const addItem = createAsyncThunk('toDoList/saveItem', async (name) =>{
+
+    const res = await saveNewItem(name)
+   
+    console.log('thunk function response: ', res)
+
     return res
 })
 
@@ -14,9 +23,6 @@ const toDoSlice = createSlice({
         status: 'idle'
     },
     reducers:{
-        addItem: (state, action) => {
-
-        },
         deleteItem: (state, action) => {
 
         },        
@@ -28,12 +34,14 @@ const toDoSlice = createSlice({
         [getAllItems.fulfilled]: (state, action) => {
             state.status = 'success'
             state.items = action.payload
+        },
+        [addItem.fulfilled]: (state, action) => {
+            state.items = [...state.items, action.payload]
         }
     }
 })
 
-
 export const selectAllItems = state => state.toDos.items
 export const selectStatus = state => state.toDos.status
-export const {addItem, deleteItem, toggleCompletion} = toDoSlice.actions
+export const {deleteItem, toggleCompletion} = toDoSlice.actions
 export default toDoSlice.reducer

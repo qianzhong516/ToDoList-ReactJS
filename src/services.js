@@ -9,4 +9,9 @@ const fetchAllItems = async () => {
     return res.data
 }
 
-export {fetchAllItems}
+const saveNewItem = async(name) => {
+    const res = await axios.post(`${baseURL}/add/item`, {name})
+    return res.data
+}
+
+export {fetchAllItems, saveNewItem}
