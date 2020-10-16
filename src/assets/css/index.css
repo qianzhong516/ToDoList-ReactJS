@@ -112,18 +112,24 @@ input[type=checkbox]:checked:after{
     color: #ffffff;
     cursor: pointer;
 }
+#add-to-do input[type=submit]:disabled{
+    background: #f2f2f2;
+    border: 1px solid #cccccc;
+    color: #cccccc;
+}
 #tag-form{
     display: inline-block;
 }
 #tag-form .inp{
-    width: 100px;
-    margin-right: 10px;
+    width: 80px;
+    margin-right: 5px;
     padding: 5px 10px;
     border: 1px solid #292929;
     border-radius: 4px;
 }
 #tag-form input[name="tag-name"]{
-    width: 120px;
+    width: 100px;
+    margin-right: 5px;
     padding: 5px 10px;
     border: 1px solid #292929;
     border-radius: 4px;    
@@ -131,4 +137,9 @@ input[type=checkbox]:checked:after{
 .add-new-tag, .cancel{
     font-size: 15px;
     color: grey;
+}
+.confirm{
+    font-size: 15px;
+    margin-right: 5px;
+    color: #292929;
 }

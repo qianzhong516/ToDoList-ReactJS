@@ -32,7 +32,8 @@ const AddItemForm = () => {
                 <AddNewTagBtn showTagForm={showTagForm} updateFn={setShowTagForm}/>
                 
             </div>
-            <input type="submit" value="Add To do" />
+            { showTagForm ? <input type="submit" value="Add To do" disabled /> : 
+                            <input type="submit" value="Add To do" />   }
         </form>
     )
 }

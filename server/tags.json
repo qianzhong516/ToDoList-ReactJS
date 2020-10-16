@@ -1,6 +1,14 @@
 [
-    {
-        "name": "housework",
-        "color": "#ffc0cb"
-    }
+  {
+    "name": "housework",
+    "color": "#ffc0cb"
+  },
+  {
+    "name": "sports",
+    "color": "#ff4b4b"
+  },
+  {
+    "name": "play",
+    "color": "#ffff7d"
+  }
 ]

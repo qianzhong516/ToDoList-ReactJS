@@ -1,20 +1,7 @@
 [
   {
-    "id": "2",
-    "name": "buy sugar",
-    "complete": false,
-    "tag": "housework",
-    "completed": true
-  },
-  {
     "id": "4",
     "name": "buy KFC",
-    "completed": false,
-    "tag": "housework"
-  },
-  {
-    "id": "5",
-    "name": "mop the ground",
     "completed": true,
     "tag": "housework"
   },
@@ -23,5 +10,23 @@
     "name": "Vacum",
     "completed": false,
     "tag": "housework"
+  },
+  {
+    "id": "7",
+    "name": "stay at home",
+    "completed": true,
+    "tag": "housework"
+  },
+  {
+    "id": "8",
+    "name": "basketball",
+    "completed": false,
+    "tag": "sports"
+  },
+  {
+    "id": "9",
+    "name": "Grand auto",
+    "completed": false,
+    "tag": "play"
   }
 ]

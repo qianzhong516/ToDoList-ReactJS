@@ -26,21 +26,27 @@ const NewTagForm = ({updateFn}) => {
             color: document.querySelector('#colorPicker').value
         }
         console.log('saving tag', tag)
-        dispatch(saveTag(tag))
 
-        document.querySelector('input[name=tag-name]').value=""
-        document.querySelector('#colorPicker').value=""
-        
-        // hide the NewTagForm
-        updateFn(false)
+        if(tag.name!=="" && tag.color!==""){
+            dispatch(saveTag(tag))
+
+            document.querySelector('input[name=tag-name]').value=""
+            document.querySelector('#colorPicker').value=""
+            
+            // hide the NewTagForm
+            updateFn(false)
+        }else{
+            alert("input tag name or tag color!")
+        }
+
     }
 
     return(
         <div id="tag-form">
-            <input type="text" className="inp" placeholder="Pick a color" id="colorPicker"/>
+            <input type="text" className="inp" placeholder="Color" id="colorPicker"/>
             <div className="palette" id="colorPalette"></div>
             <input type="text" name="tag-name" />
-            <a href="/confirm" onClick={addNewTag}>Confirm</a>
+            <a href="/confirm" onClick={addNewTag} className="confirm">Confirm</a>
         </div>
     )
 }
