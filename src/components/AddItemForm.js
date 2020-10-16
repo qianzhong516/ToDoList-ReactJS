@@ -25,7 +25,7 @@ const AddItemForm = () => {
     }
 
     return(
-        <form id="add-to-do" onSubmit={handleSubmit} autocomplete="off">
+        <form id="add-to-do" onSubmit={handleSubmit} autoComplete="off">
             <div className="form-control"><label>Task Name: </label><input type="text" name="toDoName" /></div>
             <div className="form-control">
                 <label>Tag: </label>{ showTagForm ?  <NewTagForm updateFn={setShowTagForm} /> : <TagSelect />} 
