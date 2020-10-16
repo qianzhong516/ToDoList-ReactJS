@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = process.env.NODE_ENV === "production" ? process.env.PUBLIC_URL : "http://localhost:3001"
+const baseURL = process.env.NODE_ENV === "production" ? "" : "http://localhost:3001"
 
 const fetchAllTags = async() => {
     const res = await axios.get(`${baseURL}/get/tags`)

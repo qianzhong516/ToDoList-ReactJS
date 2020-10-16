@@ -2,7 +2,7 @@
   "name": "to-do-list",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://qianzhong516.github.io/ToDoList-ReactJS",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -21,9 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "nodemon server/server.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "server": "nodemon server/server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
