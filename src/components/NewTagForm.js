@@ -8,13 +8,15 @@ const NewTagForm = ({updateFn}) => {
 
     useEffect(()=>{
 
+        let rootURL = process.env.NODE_ENV==="production" ? "/ToDoList-ReactJS" : ""
+
         let stylesheet = document.createElement('link')
         stylesheet.rel = "stylesheet"
-        stylesheet.href = "/assets/la_color_picker.css"
+        stylesheet.href = `${rootURL}/assets/la_color_picker.css`
         window.document.head.appendChild(stylesheet)
 
         let script = document.createElement('script')
-        script.src="/assets/la_color_picker.js"
+        script.src=`${rootURL}/assets/la_color_picker.js`
         window.document.body.appendChild(script)
         
     },[])

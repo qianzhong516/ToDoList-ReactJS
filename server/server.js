@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3001
 const fileDir = __dirname+"/items.json"
 const tagFileDir = __dirname+"/tags.json"
 
-app.use(express.static("build"))
+app.use(express.static("static"))
 
 app.get('/get/items', (req, res) => {
     const raw = fs.readFileSync(fileDir)
