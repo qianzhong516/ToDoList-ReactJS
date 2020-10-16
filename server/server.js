@@ -8,9 +8,8 @@ const PORT = process.env.PORT || 3001
 const fileDir = __dirname+"/items.json"
 const tagFileDir = __dirname+"/tags.json"
 
-app.use(express.static("static"))
 
-app.get('/get/items', (req, res) => {
+app.get('get/items', (req, res) => {
     const raw = fs.readFileSync(fileDir)
     const data = JSON.parse(raw)
     return res.json(data)
@@ -25,7 +24,7 @@ const generateID = (items) => {
     return maxID+1
 }
 
-app.post('/add/item', (req, res) => {
+app.post('add/item', (req, res) => {
 
     const name = req.body.name
     const tag = req.body.tag
@@ -50,14 +49,14 @@ app.post('/add/item', (req, res) => {
     return res.json(newItem)
 })
 
-app.get('/get/tags', (req, res) => {
+app.get('get/tags', (req, res) => {
     const raw = fs.readFileSync(tagFileDir)
     const tags = JSON.parse(raw)
 
     return res.send(tags)
 })
 
-app.put('/toggle/item', (req, res) => {
+app.put('toggle/item', (req, res) => {
 
     const id = req.body.id
     console.log(typeof(id), id)    
@@ -75,7 +74,7 @@ app.put('/toggle/item', (req, res) => {
     return res.send(id)
 })
 
-app.put('/delete/item', (req, res) => {
+app.put('delete/item', (req, res) => {
     const id = req.body.id
 
     const raw = fs.readFileSync(fileDir)
@@ -91,7 +90,7 @@ app.put('/delete/item', (req, res) => {
     return res.send(id)
 })
 
-app.post('/add/tag', (req, res) => {
+app.post('add/tag', (req, res) => {
     const tag = req.body
     console.log(req.body)
 
@@ -109,3 +108,5 @@ app.post('/add/tag', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`)
 })
+
+app.use(express.static("static"))
