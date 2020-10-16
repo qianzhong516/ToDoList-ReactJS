@@ -14,7 +14,7 @@ export const saveTag = createAsyncThunk('tags/add/tag', async(tag) => {
 const tagSlice = createSlice({
     name: "tags",
     initialState: {
-        tags: []
+        tags: null
     },
     extraReducers: {
         [getAllTags.fulfilled]: (state, action) => {
